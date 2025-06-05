@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Quem sou eu na Empresa?</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="/formulario-talento">
+            <div class="mb-3">
+                <label class="form-label">Nome:</label>
+                <input type="text" class="form-control" name="nome" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Área/Setor:</label>
+                <select class="form-select" name="area" required>
+                    <option value="">Selecione...</option>
+                    <option value="TI">TI</option>
+                    <option value="RH">RH</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Vendas">Vendas</option>
+                    <option value="Financeiro">Financeiro</option>
+                    <option value="Operações">Operações</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Cargo Atual:</label>
+                <input type="text" class="form-control" name="cargo" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Habilidades Principais:</label>
+                <textarea class="form-control" name="habilidades" rows="3" required 
+                    placeholder="Quais são suas principais habilidades técnicas e comportamentais?"></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Interesses de Desenvolvimento:</label>
+                <textarea class="form-control" name="interesses" rows="3" required 
+                    placeholder="Quais habilidades ou conhecimentos você gostaria de desenvolver?"></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Aspirações Profissionais:</label>
+                <textarea class="form-control" name="aspiracoes" rows="3" 
+                    placeholder="Onde você se vê daqui a 2-3 anos?"></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Sonhos dentro da empresa:</label>
+                <textarea class="form-control" name="sonhos" rows="2" 
+                    placeholder="O que você sonha em realizar na nossa empresa?"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Fala que eu te escuto</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="/formulario-feedback">
+            <div class="mb-3">
+                <label class="form-label">Tipo de Feedback:</label>
+                <select class="form-select" name="tipo" required>
+                    <option value="">Selecione...</option>
+                    <option value="Elogio">Elogio</option>
+                    <option value="Sugestão">Sugestão</option>
+                    <option value="Crítica Construtiva">Crítica Construtiva</option>
+                    <option value="Ideia">Ideia</option>
+                    <option value="Frustração">Frustração</option>
+                    <option value="Sonho">Sonho</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Sua mensagem:</label>
+                <textarea class="form-control" name="mensagem" rows="5" required 
+                    placeholder="Compartilhe seus pensamentos, ideias, frustrações ou sonhos..."></textarea>
+            </div>
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" name="anonimo" id="anonimo">
+                <label class="form-check-label" for="anonimo">Enviar como anônimo</label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Feedback</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

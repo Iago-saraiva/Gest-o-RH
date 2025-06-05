@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Avaliação de Desempenho</h1>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Autoavaliação</h5>
+                <p class="card-text">Preencha seu formulário de autoavaliação de desempenho.</p>
+                <a href="/formulario-autoavaliacao" class="btn btn-primary">Acessar Formulário</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Avaliação do Gestor</h5>
+                <p class="card-text">Formulário para avaliação dos colaboradores pelos gestores.</p>
+                <a href="/formulario-avaliacao-gestor" class="btn btn-primary">Acessar Formulário</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Consolidação de Resultados</h5>
+        <p>Baixe a planilha com os resultados consolidados das avaliações.</p>
+        <a href="/planilha-resultados" class="btn btn-success">Baixar Planilha</a>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Instruções e Agenda</h5>
+        <h6>Instruções de Preenchimento:</h6>
+        <ul>
+            <li>Seja honesto e objetivo em suas respostas</li>
+            <li>Forneça exemplos concretos quando possível</li>
+            <li>Preencha todos os campos obrigatórios</li>
+        </ul>
+        
+        <h6 class="mt-3">Agenda Sugerida:</h6>
+        <table class="table">
+            <tr><th>Etapa</th><th>Período</th></tr>
+            <tr><td>Autoavaliação</td><td>1º-15/06</td></tr>
+            <tr><td>Avaliação do Gestor</td><td>16-30/06</td></tr>
+            <tr><td>Feedback</td><td>1º-15/07</td></tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

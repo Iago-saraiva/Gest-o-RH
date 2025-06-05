@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Agenda de Ações do RH</h1>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Calendário Semestral</h5>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Evento</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                <tr>
+                    <td>{{ evento.data.strftime('%d/%m/%Y') }}</td>
+                    <td>{{ evento.tipo }}</td>
+                    <td>{{ evento.descricao }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Próximos Eventos</h5>
+        <div class="row">
+            {% for evento in eventos[:3] %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{{ evento.tipo }}</h6>
+                        <p>{{ evento.data.strftime('%d/%m/%Y') }}</p>
+                        <small>{{ evento.descricao }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Iniciativas de Bem-Estar</h5>
+        <div class="row">
+            {% for evento in eventos if "Happy" in evento.tipo or "Treinamento" in evento.tipo %}
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{{ evento.tipo }}</h6>
+                        <p><strong>Data:</strong> {{ evento.data.strftime('%d/%m/%Y') }}</p>
+                        <p>{{ evento.descricao }}</p>
+                        <button class="btn btn-sm btn-outline-primary">Mais Informações</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

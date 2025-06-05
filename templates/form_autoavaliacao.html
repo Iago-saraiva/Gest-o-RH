@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Formulário de Autoavaliação</h2>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="/submit-avaliacao">
+            <div class="mb-3">
+                <label class="form-label">Nome:</label>
+                <input type="text" class="form-control" name="nome" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Cargo:</label>
+                <input type="text" class="form-control" name="cargo" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">1. Descreva suas principais conquistas no período:</label>
+                <textarea class="form-control" name="conquistas" rows="3" required></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">2. Quais desafios você enfrentou?</label>
+                <textarea class="form-control" name="desafios" rows="3" required></textarea>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">3. Autoavaliação de desempenho (1 a 5):</label>
+                <select class="form-select" name="autoavaliacao" required>
+                    <option value="">Selecione...</option>
+                    <option value="1">1 - Precisa melhorar significativamente</option>
+                    <option value="2">2 - Precisa melhorar em alguns aspectos</option>
+                    <option value="3">3 - Atende às expectativas</option>
+                    <option value="4">4 - Excede expectativas</option>
+                    <option value="5">5 - Excelente desempenho</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">4. Quais são seus objetivos de desenvolvimento para o próximo período?</label>
+                <textarea class="form-control" name="objetivos" rows="3" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Autoavaliação</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

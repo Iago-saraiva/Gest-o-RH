@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Cultura de Feedback e Escuta Ativa</h1>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Fala que eu te escuto</h5>
+        <p>Compartilhe seus sonhos, frustrações e ideias para melhorarmos juntos.</p>
+        <a href="/formulario-feedback" class="btn btn-primary">Enviar Feedback</a>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Mural de Percepções</h5>
+        <div class="row">
+            {% for fb in responses %}
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">{{ fb.mensagem }}</p>
+                        <small class="text-muted">
+                            {% if fb.anonimo %}Anônimo{% else %}Identificado{% endif %} - {{ fb.data }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Plano de Ação</h5>
+        <p>Veja as ações que estão sendo tomadas com base nos feedbacks recebidos.</p>
+        <a href="/plano-acao-feedback" class="btn btn-info">Ver Plano de Ação</a>
+    </div>
+</div>
+{% endblock %}

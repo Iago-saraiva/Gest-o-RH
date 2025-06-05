@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Sistema de Gestão de Pessoas</h1>
+    <p class="lead">Ferramenta completa para avaliação de desempenho, feedback e gestão de talentos</p>
+    <hr class="my-4">
+    <p>Explore os módulos disponíveis no menu superior</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Avaliação de Desempenho</h5>
+                <p class="card-text">Sistema completo de avaliação semestral com formulários para colaboradores e gestores.</p>
+                <a href="/avaliacao-desempenho" class="btn btn-primary">Acessar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Cultura de Feedback</h5>
+                <p class="card-text">Ferramentas para escuta ativa e construção de uma cultura de feedback contínuo.</p>
+                <a href="/feedback" class="btn btn-primary">Acessar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Descrição de Cargos</h5>
+                <p class="card-text">Informações detalhadas sobre cargos, atividades e competências por setor.</p>
+                <a href="/descricao-cargos" class="btn btn-primary">Acessar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

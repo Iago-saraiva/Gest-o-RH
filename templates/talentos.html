@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Mapeamento de Talentos e Aspirações</h1>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Quem sou eu na Empresa?</h5>
+        <p>Compartilhe suas habilidades, interesses e aspirações para ajudarmos no seu desenvolvimento.</p>
+        <a href="/formulario-talento" class="btn btn-primary">Preencher Formulário</a>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Talentos por Área</h5>
+        <div class="row">
+            {% for area in ['TI', 'RH', 'Marketing', 'Vendas'] %}
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{{ area }}</h6>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Ver Talentos</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% if talentos %}
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">Últimos Registros</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Área</th>
+                        <th>Habilidades</th>
+                        <th>Interesses</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tal in talentos[-5:] %}
+                    <tr>
+                        <td>{{ tal.nome }}</td>
+                        <td>{{ tal.area }}</td>
+                        <td>{{ tal.habilidades }}</td>
+                        <td>{{ tal.interesses }}</td>
+                        <td>{{ tal.data }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

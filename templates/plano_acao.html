@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Plano de Ação Baseado em Feedbacks</h2>
+    </div>
+    <div class="card-body">
+        <p>Total de feedbacks recebidos: {{ temas.values()|sum }}</p>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tema</th>
+                    <th>Nº de Menções</th>
+                    <th>Ações Propostas</th>
+                    <th>Responsável</th>
+                    <th>Prazo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tema, count in temas.items() %}
+                <tr>
+                    <td>{{ tema }}</td>
+                    <td>{{ count }}</td>
+                    <td>
+                        <select class="form-select form-select-sm">
+                            <option>Análise inicial</option>
+                            <option>Grupo de discussão</option>
+                            <option>Plano de ação em desenvolvimento</option>
+                            <option>Implementação em andamento</option>
+                            <option>Concluído</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select form-select-sm">
+                            <option>Equipe RH</option>
+                            <option>Liderança</option>
+                            <option>Comitê Gestor</option>
+                            <option>Grupo Multidisciplinar</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="date" class="form-control form-control-sm">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <div class="mt-4">
+            <button class="btn btn-success">Salvar Plano de Ação</button>
+            <button class="btn btn-outline-primary">Exportar para Excel</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

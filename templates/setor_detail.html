@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Setor de {{ dept }}</h1>
+<a href="/descricao-cargos" class="btn btn-sm btn-outline-secondary mb-3">Voltar</a>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Cargos e Atividades</h3>
+    </div>
+    <div class="card-body">
+        <div class="accordion" id="cargosAccordion">
+            {% for cargo in info.cargos %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ loop.index }}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#collapse{{ loop.index }}" aria-expanded="true">
+                        {{ cargo.nome }}
+                    </button>
+                </h2>
+                <div id="collapse{{ loop.index }}" class="accordion-collapse collapse show" 
+                     aria-labelledby="heading{{ loop.index }}" data-bs-parent="#cargosAccordion">
+                    <div class="accordion-body">
+                        <h5>Principais Atividades:</h5>
+                        <p>{{ cargo.atividades }}</p>
+                        
+                        <h5 class="mt-3">Competências Desejadas:</h5>
+                        <p>{{ cargo.competencias }}</p>
+                        
+                        <h5 class="mt-3">Contato da Liderança:</h5>
+                        <p>{{ cargo.lideranca }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
