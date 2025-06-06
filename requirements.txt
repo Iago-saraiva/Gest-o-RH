@@ -3,3 +3,6 @@ pandas
 openpyxl
 werkzeug
 gunicorn
+flask-sqlalchemy==3.0.3
+psycopg2-binary==2.9.6
+python-dotenv==1.0.0

@@ -6,23 +6,33 @@
         <h2>Plano de Ação Baseado em Feedbacks</h2>
     </div>
     <div class="card-body">
-        <p>Total de feedbacks recebidos: {{ temas.values()|sum }}</p>
+        <div class="alert alert-info">
+            <p>Total de feedbacks recebidos: {{ total_feedbacks }}</p>
+        </div>
         
-        <table class="table">
-            <thead>
+        <table class="table table-striped">
+            <thead class="table-dark">
                 <tr>
-                    <th>Tema</th>
-                    <th>Nº de Menções</th>
+                    <th>Tipo de Feedback</th>
+                    <th>Quantidade</th>
+                    <th>Exemplos</th>
                     <th>Ações Propostas</th>
                     <th>Responsável</th>
                     <th>Prazo</th>
                 </tr>
             </thead>
             <tbody>
-                {% for tema, count in temas.items() %}
+                {% for feedback in feedback_data %}
                 <tr>
-                    <td>{{ tema }}</td>
-                    <td>{{ count }}</td>
+                    <td>{{ feedback.tipo|capitalize }}</td>
+                    <td>{{ feedback.count }}</td>
+                    <td>
+                        <ul class="list-unstyled small">
+                            {% for example in feedback.examples %}
+                            <li>{{ example }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
                     <td>
                         <select class="form-select form-select-sm">
                             <option>Análise inicial</option>
@@ -35,7 +45,7 @@
                     <td>
                         <select class="form-select form-select-sm">
                             <option>Equipe RH</option>
-                            <option>Liderança</option>
+                            <option>Líderes</option>
                             <option>Comitê Gestor</option>
                             <option>Grupo Multidisciplinar</option>
                         </select>
@@ -48,9 +58,13 @@
             </tbody>
         </table>
         
-        <div class="mt-4">
-            <button class="btn btn-success">Salvar Plano de Ação</button>
-            <button class="btn btn-outline-primary">Exportar para Excel</button>
+        <div class="mt-4 d-flex justify-content-between">
+            <button class="btn btn-success">
+                <i class="bi bi-save"></i> Salvar Plano
+            </button>
+            <button class="btn btn-primary">
+                <i class="bi bi-file-excel"></i> Exportar para Excel
+            </button>
         </div>
     </div>
 </div>
